@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("./templates/configsCss.ejs") %>
+    <link rel="stylesheet" href="/public/css/telaLogin-register.css">
+</head>
+<body>
+    <section class="section_form">
+        <div class="form_content">
+            <h1>Se registre agora em nosso sistema!</h1>
+            <div class="quest-form">
+                <div class="form-select-person">
+                    <h3>Eu sou um(a)</h3>
+                    <nav>
+                        <button class="button-active" onclick="openForm('Aluno', this)">Aluno</button>
+                        <button onclick="openForm('Professor', this)">Professor</button>
+                        <button onclick="openForm('Escola', this)">Escola</button>
+                    </nav>
+                </div>
+                <form id="form-inputs-container">
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="/public/js/telaLogin-register.js"></script>
+</body>
+</html>

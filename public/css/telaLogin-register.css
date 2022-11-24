@@ -1,0 +1,131 @@
+body {
+  background: #1C1427;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+body .section_form {
+  background: #1C1427;
+  padding: 5% 2rem;
+  color: #CCFFBD;
+}
+body .section_form .form_content h1 {
+  text-transform: uppercase;
+  position: relative;
+}
+body .section_form .form_content h1::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 3px;
+  background: #7ECA9C;
+  top: -5px;
+  right: -50px;
+}
+body .section_form .form_content h1::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 3px;
+  background: #7ECA9C;
+  bottom: -5px;
+  left: -50px;
+}
+body .section_form .form_content .quest-form {
+  margin-top: 2rem;
+}
+body .section_form .form_content .quest-form .form-select-person {
+  margin-bottom: 2rem;
+}
+body .section_form .form_content .quest-form .form-select-person nav {
+  margin-top: 1rem;
+}
+body .section_form .form_content .quest-form .form-select-person nav button {
+  all: unset;
+  background: #CCFFBD;
+  color: #1C1427;
+  padding: 0.4rem 2rem;
+  cursor: pointer;
+  border: 2px solid #CCFFBD;
+  transition: 0.3s;
+}
+body .section_form .form_content .quest-form .form-select-person nav button:hover {
+  background: transparent;
+  color: #CCFFBD;
+}
+body .section_form .form_content .quest-form .form-select-person nav .button-active {
+  background: transparent;
+  color: #CCFFBD;
+}
+body .section_form .form_content .quest-form form .input_form {
+  width: 100%;
+  position: relative;
+  height: 50px;
+  margin-top: 1rem;
+  transition: 0.3s;
+}
+body .section_form .form_content .quest-form form .input_form input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  position: absolute;
+  font-size: 1.1rem;
+  color: white;
+  background: #3E00FF;
+}
+body .section_form .form_content .quest-form form .input_form input:focus {
+  outline: none;
+}
+body .section_form .form_content .quest-form form .input_form label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #B5FFD9;
+  transition: 0.3s;
+}
+body .section_form .form_content .quest-form form .input_form input:focus ~ label, body .section_form .form_content .quest-form form .input_form input:valid ~ label {
+  top: 0;
+  font-size: 0.9rem;
+  background: rgba(72, 0, 50, 0.5294117647);
+  backdrop-filter: blur(2px);
+}
+body .section_form .form_content .quest-form form .input_form .icon-visibility {
+  opacity: 0;
+  position: absolute;
+  font-size: 1.7rem;
+  top: 50%;
+  right: 17px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+body .section_form .form_content .quest-form form .input_form input:valid ~ .icon-visibility {
+  opacity: 1;
+}
+body .section_form .form_content .quest-form form .input_form .pop_alertInput {
+  transition: 0.3s;
+  position: absolute;
+  width: 3.4rem;
+  right: -4rem;
+  z-index: 0;
+  height: 100%;
+  background: #F7EC09;
+  color: #40394A;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .section_form .form_content .quest-form form .input_form .translate-alert {
+  transform: translate(-4rem);
+}
+
+.translate-form {
+  opacity: 0;
+  transform: translate(-100vw);
+}
+
+/*# sourceMappingURL=telaLogin-register.css.map */

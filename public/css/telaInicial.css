@@ -1,0 +1,118 @@
+body {
+  background-color: #FCFCFC;
+}
+body header {
+  width: 100vw;
+  padding: 0.7rem 2rem;
+  background-color: #FCFCFC;
+  position: fixed;
+  top: 0;
+}
+body header .header_content {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body header .header_content h1 {
+  font-size: 2.2rem;
+  color: #2C2C2C;
+  cursor: pointer;
+}
+body header .header_content nav a {
+  color: #2C2C2C;
+  margin: 0 1rem;
+  padding: 0.1rem 0.6rem;
+  position: relative;
+  transition: 0.3s;
+}
+body header .header_content nav a::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  z-index: -1;
+  left: 0;
+  transition: 0.3s;
+  background: #2C2C2C;
+}
+body header .header_content nav a:hover::before {
+  width: 100%;
+}
+body header .header_content nav a:hover {
+  color: #83FFE6;
+}
+@media (max-width: 600px) {
+  body header .header_content nav {
+    order: 3;
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+body header .header_content .login-hiperlink-header a {
+  background: #2C2C2C;
+  color: #83FFE6;
+  padding: 0.3rem 0.6rem;
+  transition: 0.3s;
+  margin: 0 0.3rem;
+}
+body header .header_content .login-hiperlink-header a:nth-last-child(1) {
+  color: #FCFCFC;
+  background: #FF5F5F;
+}
+body header .header_content .login-hiperlink-header a:hover {
+  border-bottom-left-radius: 20px;
+}
+body .section-title {
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .section-title .section-title-content {
+  max-width: 90%;
+  max-width-display: flex;
+  max-width-justify-content: center;
+  max-width-align-items: center;
+}
+body .section-title .section-title-content h1 {
+  font-size: 2.4rem;
+  text-align: start;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+body .section-title .section-title-content h1 mark {
+  background: #83FFE6;
+  padding: 0.1rem 0.6rem;
+  border-radius: 10px;
+}
+body .section-title .section-title-content p {
+  font-size: 1.6rem;
+}
+body .section-title .section-title-content p span {
+  font-size: 1.8rem;
+  background: #83FFE6;
+  padding: 0 0.5rem;
+  margin-right: 0.2rem;
+}
+body .section-title .section-title-content button {
+  all: unset;
+  background: #2C2C2C;
+  color: #83FFE6;
+  padding: 0.4rem 1rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .section-title .section-title-content button:hover {
+  border-bottom-left-radius: 25px;
+}
+
+/*# sourceMappingURL=TelaInicial.css.map */

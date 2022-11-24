@@ -1,0 +1,99 @@
+$color-background01: #FCFCFC
+$color-background02: #83FFE6
+$color-background03: #FF5F5F
+$color-background04: #2C2C2C
+
+$padding-containers: 1rem 2rem
+@use "mixins"
+body
+    background-color: $color-background01
+    header
+        width: 100vw
+        padding: .7rem 2rem
+        background-color: $color-background01
+        position: fixed
+        top: 0
+        .header_content
+            max-width: 1200px
+            @include mixins.d-flex(space-between, center)
+            flex-wrap: wrap
+            h1
+                font-size: 2.2rem
+                color: $color-background04
+                cursor: pointer
+            nav 
+                a
+                    color: $color-background04
+                    margin: 0 1rem
+                    padding: .1rem .6rem
+                    position: relative
+                    transition: .3s
+                    &::before
+                        content: ""
+                        position: absolute
+                        width: 2px
+                        height: 100%
+                        z-index: -1
+                        left: 0
+                        transition: .3s
+                        background:  $color-background04
+                    &:hover
+                        &::before
+                            width: 100%
+                    &:hover
+                        color: $color-background02
+                @media (max-width: 600px) 
+                    order: 3
+                    margin-top: 1rem
+                    width: 100%
+                    @include mixins.d-flex(center, center)
+
+            .login-hiperlink-header
+                a
+                    background: $color-background04
+                    color: $color-background02
+                    padding: .3rem .6rem
+                    transition: .3s
+                    margin: 0 .3rem
+                    &:nth-last-child(1)
+                        color: $color-background01
+                        background: $color-background03
+                    &:hover
+                        border-bottom-left-radius: 20px
+    .section-title
+        width: 100vw
+        height: 100vh
+        padding: $padding-containers 
+        @include mixins.d-flex(center, center)
+        .section-title-content
+            max-width: 90%
+             @include mixins.d-flex(center, center)
+            h1
+                font-size: 2.4rem
+                text-align: start
+                text-transform: capitalize
+                margin-bottom: 1rem
+                mark
+                    background: $color-background02
+                    padding: .1rem .6rem
+                    border-radius: 10px
+            p
+                font-size: 1.6rem
+                span
+                    font-size: 1.8rem
+                    background: $color-background02
+                    padding: 0 .5rem
+                    margin-right: .2rem
+            button
+                all: unset
+                background: $color-background04
+                color: $color-background02
+                padding: .4rem 1rem
+                margin-top: 1rem
+                text-transform: uppercase
+                cursor: pointer
+                transition: .3s
+                &:hover
+                    border-bottom-left-radius: 25px
+
+        
