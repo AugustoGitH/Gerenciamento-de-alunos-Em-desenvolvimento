@@ -13,24 +13,6 @@ body .section_form .form_content h1 {
   text-transform: uppercase;
   position: relative;
 }
-body .section_form .form_content h1::after {
-  content: "";
-  position: absolute;
-  width: 30%;
-  height: 3px;
-  background: #7ECA9C;
-  top: -5px;
-  right: -50px;
-}
-body .section_form .form_content h1::before {
-  content: "";
-  position: absolute;
-  width: 30%;
-  height: 3px;
-  background: #7ECA9C;
-  bottom: -5px;
-  left: -50px;
-}
 body .section_form .form_content .quest-form {
   margin-top: 2rem;
 }

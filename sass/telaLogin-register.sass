@@ -4,6 +4,9 @@ $color-background03: #40394A
 $color-background04: #1C1427
 $color-background05: #6927FF
 $color-background06: #B5FFD9
+
+
+
 @use "mixins"
 body
     background: $color-background04
@@ -22,17 +25,7 @@ body
             h1
                 text-transform: uppercase
                 position: relative
-                &::after                   
-                    @include style-reta-befAf()
-                    top: -5px
-                    right: -50px
-                    
-                &::before
-                    @include style-reta-befAf()
-                    bottom: -5px
-                    left: -50px
-                 
-                    
+                        
             .quest-form
                 margin-top: 2rem        
                 .form-select-person
@@ -72,7 +65,7 @@ body
                             background: #3E00FF
                             &:focus
                                 outline: none
-                            &
+                            
                         label
                             position: absolute
                             top: 50%

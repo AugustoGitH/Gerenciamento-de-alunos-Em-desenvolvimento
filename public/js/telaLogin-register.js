@@ -1,13 +1,14 @@
 class Input{
-    constructor({placeholder, required, autoComplete, type, value}){
+    constructor({placeholder, name, required, autoComplete, type, value}){
         return {
             placeholder,
             required: required ? "required" : "",
+            name,
             type: !type ? "text" : type,
             autoComplete: !autoComplete ? "on" : autoComplete,
+            name,
             id: placeholder.replace(/\s/g, "").toLowerCase().substring(0, 6) + "-id",
             value: !value ? "" : value
-
         }
     }
 }
@@ -15,24 +16,24 @@ class Input{
 const formsTemplate = {
 
     aluno: [
-        new Input({placeholder: "Nome Completo", required: true}),
-        new Input({placeholder: "Email", required: true}),
-        new Input({placeholder: "Escola", required: true}),
-        new Input({placeholder: "Turma", required: true}),
+        new Input({placeholder: "Nome Completo", required: true, name: "nome"}),
+        new Input({placeholder: "Email", required: true,  name: "email"}),
+        new Input({placeholder: "Escola", required: true, name: "escola"}),
+        new Input({placeholder: "Turma", required: true, name: "turma"}),
     ],
     professor: [
-        new Input({placeholder: "Nome Completo", required: true}),
-        new Input({placeholder: "Email", required: true}),
-        new Input({placeholder: "Escola", required: true}),
-        new Input({placeholder: "Token de autenticação", required: true, autoComplete: "off" }),
-        new Input({placeholder: "Crie sua senha", required: true, type: "password"}),
-        new Input({placeholder: "Confirme sua senha", required: true, type: "password"}),
+        new Input({placeholder: "Nome Completo", required: true, name: "nome"}),
+        new Input({placeholder: "Email", required: true, name: "email"}),
+        new Input({placeholder: "Escola", required: true, name: "escola"}),
+        new Input({placeholder: "Token de autenticação", name: "token", required: true, autoComplete: "off" }),
+        new Input({placeholder: "Crie sua senha", name: "senha", required: true, type: "password"}),
+        new Input({placeholder: "Confirme sua senha",  name: "senha-confirm", required: true, type: "password"}),
     ],
     escola: [
-        new Input({placeholder: "Email", required: true}),
-        new Input({placeholder: "Token de autenticação", required: true}),
-        new Input({placeholder: "Crie sua senha", required: true, type: "password"}),
-        new Input({placeholder: "Confirme sua senha", required: true, type: "password"}),
+        new Input({placeholder: "Email", required: true, name: "email"}),
+        new Input({placeholder: "Token de autenticação", required: true, name: "token"}),
+        new Input({placeholder: "Crie sua senha", required: true, type: "password", name: "senha"}),
+        new Input({placeholder: "Confirme sua senha", required: true, type: "password", name: "senha-confirm"}),
     ]
 }
 function renderInputsForm(form){
@@ -44,7 +45,7 @@ function renderInputsForm(form){
             inputsInnerHTML += `
                     <div class="input_form translate-form">
                         <div class="pop_alertInput translate-alert"><i class='bx bxs-error-alt'></i></div>
-                        <input id="${input.id}" class="input-form-register" type="${input.type}" ${input.required} autocomplete="${input.autoComplete}" ${input.id === "confir-id" ? "oninput='verifyConfPass(this)'" : ""}>
+                        <input id="${input.id}" name="${input.name}" class="input-form-register" type="${input.type}" ${input.required} autocomplete="${input.autoComplete}" ${input.id === "confir-id" ? "oninput='verifyConfPass(this)'" : ""}>
                         <label>${input.placeholder}</label>
                         ${input.type === "password" ? "<i class='bx bxs-low-vision icon-visibility' onclick='toggleVisibilityPass(this)'></i>" : ""}
                     </div>
@@ -67,25 +68,48 @@ function translateInputs(container){
         }, (index + 1)* 200)
     })
 }
+
+
+const verificationParameters = {
+    messAlert(state, input){
+        let popAlert = input.parentNode.querySelector(".pop_alertInput")
+        if(state === "open"){
+            popAlert.classList.remove("translate-alert")
+            return false
+        }
+        else if(state === "close"){
+            popAlert.classList.add("translate-alert")
+            return true
+        }
+    },
+    name(input){
+        if(input.value.split(" ").length <= 1 || input.value.length < 4 || input.value.length > 40) return this.messAlert("open", input)
+        else return this.messAlert("close", input)
+    },
+    email(input){
+        if(!input.value.match(/(@)/i) || input.value.length > 40) return this.messAlert("open", input)
+        else return this.messAlert("close", input)
+    },
+    default(input){
+        if(input.value.length <= 2) return this.messAlert("open", input)
+        else return this.messAlert("close", input)
+    }
+}
+
 function verifyCheckedInputs(){
     let inputs = document.querySelectorAll(".input-form-register")
     let inputsVazios = inputs.length
     inputs.forEach(input=>{
-        if(!input.value) inputsVazios - 1
         input.addEventListener("input", ()=>{
-            if(Array.from(inputs).every(input=> input.value) && document.querySelectorAll(".translate-alert")){
-                document.querySelector("#form-inputs-container").innerHTML += `<button>Fala</button>`
-            }
-            let popAlert = input.parentNode.querySelector(".pop_alertInput")
-            if(input.id === "nomeco-id" &&  input.value.length < 5) return popAlert.classList.remove("translate-alert")
-            if(input.id === "email-id" && input.value.indexOf("@") === -1) return popAlert.classList.remove("translate-alert")
-            popAlert.classList.add("translate-alert")
-            
-            
-
+            if(input.name === "nome") return verificationParameters.name(input)
+            if(input.name === "email") return verificationParameters.email(input)
+            else return verificationParameters.default(input)
         })
     })
 }
+
+
+
 function toggleVisibilityPass(icon){
     let input = icon.parentNode.querySelector("input")
     if(input.type === "password") input.type = "text"
@@ -95,11 +119,8 @@ function toggleVisibilityPass(icon){
 function verifyConfPass(input){
     let inputObservable = input.parentNode.parentNode.querySelector("#criesu-id")
     let popAlert = input.parentNode.querySelector(".pop_alertInput")
-    if(inputObservable.value !== input.value){
-        popAlert.classList.remove("translate-alert")
-    }else{
-        popAlert.classList.add("translate-alert")
-    }
+    if(inputObservable.value !== input.value) return popAlert.classList.remove("translate-alert")
+    else return popAlert.classList.add("translate-alert")
     
 }
 function openForm(form, button){
