@@ -14,7 +14,6 @@ body
         position: fixed
         top: 0
         .header_content
-            max-width: 1200px
             @include mixins.d-flex(space-between, center)
             flex-wrap: wrap
             h1
@@ -67,7 +66,8 @@ body
         @include mixins.d-flex(center, center)
         .section-title-content
             max-width: 90%
-             @include mixins.d-flex(center, center)
+            @include mixins.d-flex(center, start)
+            flex-direction: column
             h1
                 font-size: 2.4rem
                 text-align: start

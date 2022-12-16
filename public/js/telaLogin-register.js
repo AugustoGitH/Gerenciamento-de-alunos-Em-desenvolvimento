@@ -87,7 +87,13 @@ const verificationParameters = {
         else return this.messAlert("close", input)
     },
     email(input){
-        if(!input.value.match(/(@)/i) || input.value.length > 40) return this.messAlert("open", input)
+        if(!input.value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) || input.value.length > 40) return this.messAlert("open", input)
+        else return this.messAlert("close", input)
+    },
+    senha(input){
+        if(!input.value.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/)){
+            return this.messAlert("open", input)
+        }
         else return this.messAlert("close", input)
     },
     default(input){
@@ -103,6 +109,7 @@ function verifyCheckedInputs(){
         input.addEventListener("input", ()=>{
             if(input.name === "nome") return verificationParameters.name(input)
             if(input.name === "email") return verificationParameters.email(input)
+            if(input.name === "senha") return verificationParameters.senha(input)
             else return verificationParameters.default(input)
         })
     })

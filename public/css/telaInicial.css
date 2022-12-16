@@ -9,7 +9,6 @@ body header {
   top: 0;
 }
 body header .header_content {
-  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,9 +76,10 @@ body .section-title {
 }
 body .section-title .section-title-content {
   max-width: 90%;
-  max-width-display: flex;
-  max-width-justify-content: center;
-  max-width-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
 }
 body .section-title .section-title-content h1 {
   font-size: 2.4rem;
@@ -115,4 +115,4 @@ body .section-title .section-title-content button:hover {
   border-bottom-left-radius: 25px;
 }
 
-/*# sourceMappingURL=TelaInicial.css.map */
+/*# sourceMappingURL=telaInicial.css.map */
