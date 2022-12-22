@@ -1,43 +1,60 @@
 body {
   background: #1C1427;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+body .button_page-back {
+  position: absolute;
+  font-size: 2rem;
+  top: 2rem;
+  left: 2rem;
+  color: #3E00FF;
 }
 body .section_form {
   background: #1C1427;
-  padding: 5% 2rem;
   color: #CCFFBD;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
 }
-body .section_form .form_content h1 {
-  text-transform: uppercase;
-  position: relative;
+body .section_form .form_content {
+  width: 500px;
+}
+@media (max-width: 700px) {
+  body .section_form .form_content {
+    width: calc(100% - 6rem);
+  }
+}
+body .section_form .form_content .icon-school {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .section_form .form_content .icon-school i {
+  color: #3E00FF;
+  font-size: 4rem;
 }
 body .section_form .form_content .quest-form {
   margin-top: 2rem;
 }
-body .section_form .form_content .quest-form .form-select-person {
-  margin-bottom: 2rem;
-}
-body .section_form .form_content .quest-form .form-select-person nav {
-  margin-top: 1rem;
-}
-body .section_form .form_content .quest-form .form-select-person nav button {
-  all: unset;
-  background: #CCFFBD;
-  color: #1C1427;
-  padding: 0.4rem 2rem;
+body .section_form .form_content .quest-form form .password_verify-security .input_form .icon-visibility-pass {
+  position: absolute;
+  font-size: 1.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
   cursor: pointer;
-  border: 2px solid #CCFFBD;
-  transition: 0.3s;
 }
-body .section_form .form_content .quest-form .form-select-person nav button:hover {
-  background: transparent;
-  color: #CCFFBD;
-}
-body .section_form .form_content .quest-form .form-select-person nav .button-active {
-  background: transparent;
-  color: #CCFFBD;
+body .section_form .form_content .quest-form form .password_verify-security p {
+  color: #F7EC09;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
 }
 body .section_form .form_content .quest-form form .input_form {
   width: 100%;
@@ -103,6 +120,35 @@ body .section_form .form_content .quest-form form .input_form .pop_alertInput {
 }
 body .section_form .form_content .quest-form form .input_form .translate-alert {
   transform: translate(-4rem);
+}
+body .section_form .form_content .quest-form form .button_submit-container {
+  height: 2.5rem;
+  margin-top: 1rem;
+}
+body .section_form .form_content .quest-form form .button_submit-container .button-submit {
+  all: unset;
+  height: 100%;
+  font-size: 1rem;
+  border: 1.3px solid #FD841F;
+  background: #FD841F;
+  cursor: pointer;
+  padding: 0 1.3rem;
+  color: #1C1427;
+  text-transform: uppercase;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .section_form .form_content .quest-form form .button_submit-container .button-submit i {
+  font-size: 1.4rem;
+}
+body .section_form .form_content .quest-form form .button_submit-container .button-submit:hover {
+  background: transparent;
+  color: #FD841F;
+}
+body .section_form .form_content .quest-form form .button_submit-container .button-submit:hover i {
+  color: #FD841F;
 }
 
 .translate-form {

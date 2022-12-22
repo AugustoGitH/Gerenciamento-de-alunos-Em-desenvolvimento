@@ -9,24 +9,51 @@
     <link rel="stylesheet" href="/public/css/telaLogin-register.css">
 </head>
 <body>
+    <a href="/" class="button_page-back"><i class="bx bx-left-arrow-alt"></i></a>
     <section class="section_form">
         <div class="form_content">
-            <h1>Se registre agora em nosso sistema!</h1>
+            <span class="icon-school"><i class='bx bxs-graduation'></i></span>
             <div class="quest-form">
-                <div class="form-select-person">
-                    <h3>Eu sou um(a)</h3>
-                    <nav>
-                        <button class="button-active" onclick="openForm('Aluno', this)">Aluno</button>
-                        <button onclick="openForm('Professor', this)">Professor</button>
-                        <button onclick="openForm('Escola', this)">Escola</button>
-                    </nav>
-                </div>
                 <form id="form-inputs-container">
-                    
+                    <div class="input_form">
+                        <div class="pop_alertInput translate-alert"><i class='bx bxs-error-alt'></i></div>
+                        <input id="nome-input" name="nome" class="input-form-register input-invalid" type="text" required>
+                        <label>Nome Completo</label>
+                    </div>
+                    <div class="input_form">
+                        <div class="pop_alertInput translate-alert"><i class='bx bxs-error-alt'></i></div>
+                        <input id="email-input" name="email" class="input-form-register input-invalid" type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input_form">
+                        <div class="pop_alertInput translate-alert"><i class='bx bxs-error-alt'></i></div>
+                        <input id="token-input" name="token" class="input-form-register input-invalid" type="text" required>
+                        <label>Token de Autenticação</label>
+                    </div>
+                    <div class="password_verify-security">
+                        <div class="input_form">
+                            <div class="pop_alertInput translate-alert"><i class='bx bxs-error-alt'></i></div>
+                            <input id="senha-input" name="senha" class="input-form-register input-invalid" type="password" required>
+                            <label>Crie uma senha</label>
+                            <i class="bx bxs-low-vision icon-visibility-pass" onclick="visibilityPass(this)"></i>
+                        </div>
+                        <p>Sua senha preciso conter ao menos uma 10 caracteres contendo letras maiúsculas, minusculas, caracteres especiais e números. </p>
+                    </div>
+                    <div class="password_verify-security">
+                        <div class="input_form">
+                            <div class="pop_alertInput translate-alert"><i class='bx bxs-error-alt'></i></div>
+                            <input id="confirm-senha-input" name="confirm-senha" class="input-form-register input-invalid" type="password" required>
+                            <label>Confirme sua senha</label>
+                            <i class="bx bxs-low-vision icon-visibility-pass" onclick="visibilityPass(this)"></i>
+                        </div>
+                    </div>
+                    <div class="button_submit-container">
+                        
+                    </div>
                 </form>
             </div>
         </div>
     </section>
-    <script src="/public/js/telaLogin-register.js"></script>
+    <script src="/public/js/tela-register.js"></script>
 </body>
 </html>

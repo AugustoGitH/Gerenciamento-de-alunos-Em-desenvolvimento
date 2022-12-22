@@ -6,9 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <%- include("./templates/configsCss.ejs") %>
-    <link rel="stylesheet" href="/public/css/telaLogin-register">
+    <link rel="stylesheet" href="/public/css/telaLogin-register.css">
 </head>
 <body>
-    
+    <a href="/" class="button_page-back"><i class="bx bx-left-arrow-alt"></i></a>
+    <section class="section_form">
+        <div class="form_content">
+            <span class="icon-school"><i class='bx bxs-graduation'></i></span>
+            <div class="quest-form">
+                <form id="form-inputs-container">
+                    <div class="input_form">
+                        <div class="pop_alertInput translate-alert"><i class='bx bxs-error-alt'></i></div>
+                        <input id="email-input" name="email" class="input-form-register input-invalid" type="text" autocomplete="off" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="password_verify-security">
+                        <div class="input_form">
+                            <div class="pop_alertInput translate-alert"><i class='bx bxs-error-alt'></i></div>
+                            <input id="senha-input" name="senha" class="input-form-register input-invalid" type="password" required>
+                            <label>Senha</label>
+                            <i class="bx bxs-low-vision icon-visibility-pass" onclick="visibilityPass(this)"></i>
+                        </div>
+                    </div>
+                    <div class="button_submit-container"> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="/public/js/tela-login.js"></script>
 </body>
 </html>

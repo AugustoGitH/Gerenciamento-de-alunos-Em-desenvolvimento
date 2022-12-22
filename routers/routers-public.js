@@ -7,4 +7,5 @@ router.get("/login", (req, res)=> res.render("telaLogin"))
 router.get("/register", (req, res)=> res.render("telaRegister"))
 
 
+
 module.exports = router

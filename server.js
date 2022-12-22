@@ -6,19 +6,26 @@ require("dotenv").config()
 const cookieParser = require('cookie-parser')
 const bodyParser = require("body-parser")
 
-const routersViews = require("./routers/routersViews")
 
-app.use("/", routersViews)
+const routersPublic = require("./routers/routers-public")
+const routersSecretarial = require("./routers/routers-secretarial")
+const routersAuthentication = require("./routers/router-authentication")
+
 
 app.use("/public", express.static("public"))
+app.set("view engine", "ejs")
 app.use(cookieParser())
+
 
 app.use(bodyParser.json({limit: '99999mb', extended: true}))
 app.use(bodyParser.urlencoded({limit: '99999mb', extended: true}))
 
+app.use("/", routersPublic)
+app.use("/secretarial-system", routersSecretarial)
+app.use("/auth/api", routersAuthentication)
 
 
-app.set("view engine", "ejs")
+
 
 
 
